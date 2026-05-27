@@ -99,16 +99,23 @@ def main():
             msg = j.get("message", "")
             msg_lower = msg.lower()
 
-            if "got" in msg_lower:
+            print(f"DEBUG checkin HTTP {r.status_code}: {r.text[:300]}")
+
+            if "checkin" in msg_lower or "get" in msg_lower or "got" in msg_lower:
                 ok += 1
                 points = j.get("points", "-")
                 status = "✅ 成功"
-            elif "repeat" in msg_lower or "already" in msg_lower:
+            elif (
+                "repeat" in msg_lower
+                or "already" in msg_lower
+                or "tomorrow" in msg_lower
+                or "please try tomorrow" in msg_lower
+            ):
                 repeat += 1
-                status = "🔁 已签到"
+                status = "已签到"
             else:
                 fail += 1
-                status = "❌ 失败"
+                status = f"❌ 失败({msg or r.text[:80]})"
 
             # 状态接口（允许失败）
             s = session.get(STATUS_URL, headers=headers, timeout=TIMEOUT)
