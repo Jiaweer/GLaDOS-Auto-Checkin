@@ -7,15 +7,12 @@ import requests
 
 CHECKIN_URL = "https://glados.cloud/api/user/checkin"
 STATUS_URL = "https://glados.cloud/api/user/status"
+USER_AGENT = os.environ.get("GLADOS_USER_AGENT", "").strip()
 
 HEADERS_BASE = {
     "origin": "https://glados.cloud",
     "referer": "https://glados.cloud/console/checkin",
-    "user-agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/120.0.0.0 Safari/537.36"
-    ),
+    "user-agent": USER_AGENT,,
     "content-type": "application/json;charset=UTF-8",
 }
 
