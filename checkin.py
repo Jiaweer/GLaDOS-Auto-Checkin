@@ -12,7 +12,7 @@ USER_AGENT = os.environ.get("GLADOS_USER_AGENT", "").strip()
 HEADERS_BASE = {
     "origin": "https://glados.cloud",
     "referer": "https://glados.cloud/console/checkin",
-    "user-agent": USER_AGENT,,
+    "user-agent": USER_AGENT,
     "content-type": "application/json;charset=UTF-8",
 }
 
