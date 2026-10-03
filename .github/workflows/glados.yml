@@ -28,4 +28,4 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
           COOKIES: ${{ secrets.COOKIES }}
-          GLADOS_USER_AGENT: ${{ vars.GLADOS_USER_AGENT }}
+          GLADOS_USER_AGENT: ${{ secrets.GLADOS_USER_AGENT }}
